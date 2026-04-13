@@ -1,0 +1,8 @@
+flowchart TD
+    A[Claude output] --> B{Correct?}
+    B -- Yes --> G[Ship]
+    B -- No --> C[User correction]
+    C --> D[Root cause analysis]
+    D --> E[Write rule or example]
+    E --> F[Update CLAUDE.md or .claude files]
+    F --> A
