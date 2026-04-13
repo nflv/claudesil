@@ -2,7 +2,6 @@
 
 ## Claude Self-Improvement Repo
 
-````md
 
 A practical, publish-ready system for making Claude Code more reliable by turning repeated mistakes into explicit rules, workflows, and reusable project memory.
 
