@@ -1,372 +1,80 @@
-# Claude Self Improvement Repo
+<img width="1536" height="1024" alt="crab transparent" src="https://github.com/user-attachments/assets/dde8f855-5ea8-4ab6-a3f4-a4d48538ac52" />
+# Claude Self-Improvement Repo
 
-A push-ready skill repository that teaches and scaffolds a well-documented GitHub repo for Claude Code workflows.
 
-This package does two jobs:
+````md
+A practical, publish-ready system for making Claude Code more reliable by turning repeated mistakes into explicit rules, workflows, and reusable project memory.
 
-1. It acts as a **ChatGPT Skill** that helps users create a clean repository with `CLAUDE.md`, modular rules, task tracking, diagrams, examples, and a documented self-improvement loop.
-2. It includes a **template repository** that users can publish directly or adapt for their own project.
+<p align="left">
+  <img alt="GitHub stars" src="https://img.shields.io/github/stars/yourname/claude-self-improvement-repo?style=flat-square">
+  <img alt="GitHub forks" src="https://img.shields.io/github/forks/yourname/claude-self-improvement-repo?style=flat-square">
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-blue?style=flat-square">
+  <img alt="Claude Code" src="https://img.shields.io/badge/built%20for-Claude%20Code-6b46c1?style=flat-square">
+</p>
 
-The central idea is simple:
+---
 
-> Every repeated mistake should become a rule, example, or checklist item so the model does not make the same mistake again.
+## What this repo is
+
+This repository does two jobs:
+
+1. **ChatGPT Skill**  
+   Helps generate a clean Claude Code workflow with `CLAUDE.md`, modular rules, task tracking, examples, and diagrams.
+
+2. **Template Repository**  
+   Gives you a documented starter repo you can publish directly or adapt to your own projects.
+
+> The core idea is simple: every repeated mistake should become a rule, checklist item, example, or workflow so it does not happen again.
 
 That is the self-improvement loop.
 
-## What this repository includes
+---
 
-- `SKILL.md` - the skill entrypoint and operating instructions
-- `agents/openai.yaml` - ChatGPT skill metadata
-- `references/` - the guide material the skill loads when needed
-- `assets/template-repo/` - a complete template repository users can copy and publish
-- `scripts/` - lightweight helper tooling for validation and adoption
+## Why this exists
+
+Claude does **not** improve automatically.
+
+It becomes more reliable only when you build a feedback system around it:
+
+- detect repeated mistakes
+- convert them into explicit instructions
+- verify outcomes
+- keep the rules short, specific, and updated
+
+This repo turns that process into something concrete and reusable.
+
+---
+
+## The self-improvement loop
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/44043487-3405-439b-a1ed-6a5fb0fe016a" alt="Self-improvement loop diagram" width="520">
+</p>
+
+**Loop:**
+
+1. Claude makes a mistake or produces a weak result  
+2. You identify the failure pattern  
+3. You convert the pattern into a rule, checklist, or example  
+4. Future sessions start with better guardrails  
+
+---
 
 ## Who this is for
 
-Use this if you want to:
+Use this repo if you want to:
 
 - publish a polished GitHub repo explaining `CLAUDE.md`
-- teach others how to structure project memory and rules for Claude Code
-- demonstrate the self-improvement loop with examples and diagrams
-- give teams a reusable starter kit instead of vague advice
+- build a reliable Claude Code workflow for yourself or your team
+- replace vague prompting with repeatable systems
+- teach others how project memory, rules, and workflows should actually work
+- turn trial-and-error into accumulated operational knowledge
 
-## Core concept
+---
 
-The self-improvement loop is not “AI learns magically.”
-It is a disciplined workflow:
+## What’s included
 
-1. Claude makes a mistake or produces a weak result.
-2. You identify the failure pattern.
-3. You convert that pattern into an explicit rule, checklist, example, or template.
-4. Future sessions start with better guardrails.
-
-This repository turns that loop into a concrete, reproducible system.
-
-## Diagram
-
-<img width="816" height="1475" alt="mermaid-diagram (1)" src="https://github.com/user-attachments/assets/44043487-3405-439b-a1ed-6a5fb0fe016a" />
-
-# Claude Self-Improvement System
-
-## 1. What this is
-This is a system that makes Claude stop repeating mistakes.
-
-## 2. The core idea
-Claude does not learn automatically.
-You must convert errors into rules.
-
-## 3. The Loop
-
-<img width="816" height="1475" alt="mermaid-diagram (1)" src="https://github.com/user-attachments/assets/fe2eea0c-0bb1-4994-a065-048f7887b78f" />
-
-
-## 4. File hierarchy
-
-<img width="816" height="1475" alt="mermaid-diagram (1)" src="https://github.com/user-attachments/assets/428fa84b-437f-4a57-a479-6011f2258431" />
-
-
-## 5. How Claude actually reads your memory
-
-<img width="621" height="2075" alt="mermaid-diagram (2)" src="https://github.com/user-attachments/assets/cb2ee08d-cc5c-45c3-9b66-fa31f937cbc3" />
-
-Claude Code does not “remember everything forever” like a human.
-
-It reads the memory files you give it at the start of work, then uses those files as instructions and context for the current session.
-
-The idea is simple:
-
-Global memory = your personal preferences across all projects
-Project memory = rules for this specific repository
-Local memory = your private notes for this project only
-Modular rules = extra rules loaded when relevant
-
-According to the hierarchy you shared, Claude Code supports these layers: global ~/.claude/CLAUDE.md, project ./CLAUDE.md or ./.claude/CLAUDE.md, and local ./CLAUDE.local.md, with more specific files taking priority over broader ones. Modular rules can live under .claude/rules/.
-
-Memory Hierarchy:
-
-<img width="2252" height="932" alt="mermaid-diagram (3)" src="https://github.com/user-attachments/assets/98b2f9fb-aeec-4c74-abed-b7afd761b7bd" />
-
-Priority order
-
-If two rules conflict, the more specific one wins:
-
-CLAUDE.local.md
-project CLAUDE.md
-global ~/.claude/CLAUDE.md
-
-That means:
-
-your personal override for one repo beats the team default
-the repo rule beats your general preference
-the global file is the weakest layer
-What each file is for
-~/.claude/CLAUDE.md
-
-Use this for things you want in every project.
-
-Examples:
-
-preferred coding style
-how you like explanations
-default behavior for planning
-personal formatting preferences
-./CLAUDE.md
-
-Use this for rules the whole repository should follow.
-
-Examples:
-
-architecture rules
-test commands
-branch naming
-code review expectations
-important project quirks
-
-This file should usually be committed to git so the whole team shares the same base context.
-
-./CLAUDE.local.md
-
-Use this for private notes that should not be committed.
-
-Examples:
-
-your own shortcuts
-local machine setup
-temporary project reminders
-personal workflow preferences
-
-This should usually be added to .gitignore.
-
-.claude/rules/*.md
-
-Use these to split large rules into smaller files.
-
-Examples:
-
-coding.md
-testing.md
-debugging.md
-api-routes.md
-
-This keeps the main CLAUDE.md short and easier to maintain.
-
-Important truth
-
-Claude does not become better just because the file exists.
-
-It becomes better only when:
-
-the rules are specific
-the rules are short
-the rules are based on real mistakes
-the rules are updated over time
-
-That is the whole self-improvement loop.
-
-
-## 6. Quick start (5 steps)
-
-Step 1 — Create a project CLAUDE.md
-
-At the root of your repo, add a CLAUDE.md.
-
-Start small. Do not write a giant manifesto.
-
-Good first sections:
-
-code style
-architecture
-workflow
-testing
-common mistakes
-
-Example:
-
-# Code Style
-- Use TypeScript, not plain JavaScript
-- Use ES modules
-- Keep functions small and explicit
-
-# Architecture
-- API routes live in src/api/
-- Database logic lives in src/db/
-- Do not mix UI and server code
-
-# Workflow
-- For tasks with more than 3 steps, make a plan first
-- Keep changes minimal
-- Do not edit unrelated files
-
-# Testing
-- Run npm test before finishing
-- Run npm run typecheck before commit
-Step 2 — Add modular rules
-
-Create .claude/rules/ and split rules by topic.
-
-Example:
-
-.claude/
-  rules/
-    coding.md
-    testing.md
-    git.md
-    debugging.md
-
-This helps avoid one huge file.
-
-Step 3 — Use task tracking
-
-Create a task file like tasks/todo.md.
-
-For every non-trivial task:
-
-write the plan
-track progress
-write a short review at the end
-
-Example:
-
-# Task: Fix broken auth redirect
-
-## Plan
-- [ ] Reproduce the bug
-- [ ] Find root cause
-- [ ] Implement fix
-- [ ] Run tests
-- [ ] Document lesson
-
-## Review
-- Root cause was wrong callback path
-- Added regression test
-- Added rule to avoid hardcoded redirect paths
-Step 4 — Verify before calling it done
-
-Do not let Claude stop at “I changed the code.”
-
-Done means verified.
-
-Examples:
-
-UI: open and test it
-backend: run tests
-infra: check logs
-bugfix: reproduce before and after
-
-If there is no verification step, the workflow is weak.
-
-Step 5 — Turn mistakes into rules
-
-Whenever Claude makes a mistake twice, convert that mistake into a rule.
-
-Simple format:
-
-## New learning
-- Mistake: Changed unrelated files during refactor
-- Cause: Scope was too broad
-- Rule: Only modify files directly needed for the task unless explicitly asked
-
-That is how the system compounds over time.
-
-## 7. Real example (before/after)
-
-This section matters because theory alone is weak.
-
-Before
-
-The team uses vague rules like this:
-
-# Rules
-- Write clean code
-- Test your changes
-- Keep files organized
-- Use best practices
-
-This looks nice but it is mostly useless.
-
-Why it fails:
-
-too vague
-not testable
-no project context
-Claude already knows generic advice
-After
-
-Now the team writes specific rules:
-
-# Code Style
-- Use ES modules only; do not use CommonJS
-- Prefer named exports for shared utilities
-- Keep API handlers under src/api/handlers/
-
-# Testing
-- Run npm run test:unit before completion
-- Run npm run typecheck before commit
-- For auth changes, also run npm run test:auth
-
-# Workflow
-- For tasks with more than 3 steps, write a plan in tasks/todo.md first
-- Do not modify unrelated files
-- If a fix is temporary, say so explicitly and explain the tradeoff
-
-# Common Mistakes
-- Do not hardcode environment-specific URLs
-- Do not rename files during bugfixes unless required
-- Do not skip regression tests for production bugs
-What improved
-1. Claude has real constraints
-
-It now knows:
-
-where things belong
-how to verify changes
-what errors to avoid
-2. The repo becomes more consistent
-
-Different sessions produce more similar results.
-
-3. Repeated mistakes go down
-
-Because the system captures failures and turns them into guardrails.
-
-The deeper point
-
-The improvement does not come from “better prompting.”
-
-It comes from building a feedback loop:
-
-<img width="849" height="1475" alt="mermaid-diagram (4)" src="https://github.com/user-attachments/assets/d7b2f1da-3f03-475b-ba7d-5ec72ec1c497" />
-
-## 8. Full system breakdown (link to guide.md)
-
-Full system breakdown
-
-For the full explanation, see guide.md
-.
-
-That guide should cover:
-
-what CLAUDE.md is
-where to place each file
-what to include and what to avoid
-how @imports work
-how modular rules work
-the Boris Cherny workflow
-how to evolve the system over time
-common mistakes when writing memory files
-
-In short:
-
-README = fast understanding
-guide.md = full explanation
-CLAUDE.md = actual operational rules
-.claude/rules/ = modular extensions
-tasks/ = execution tracking
-learnings/ = institutional memory
-Template repository contents
-
-Here is what each part of the template repo is for.
-
+```text
 claude-self-improvement-repo/
 ├── README.md
 ├── guide.md
@@ -393,174 +101,406 @@ claude-self-improvement-repo/
 └── examples/
     ├── bad-vs-good.md
     └── real-session.md
-README.md
+````
 
-The front door.
+---
 
-Purpose:
+## Repository structure
 
-explain what the repo is
-show the core idea fast
-include diagrams
-help people start quickly
+| Path                      | Purpose                                                  |
+| ------------------------- | -------------------------------------------------------- |
+| `README.md`               | Fast explanation of the repo, concept, and quick start   |
+| `guide.md`                | Deeper explanation of the full system                    |
+| `CLAUDE.md`               | Main operational rules Claude should follow in this repo |
+| `CLAUDE.local.example.md` | Example private override file                            |
+| `.claude/rules/`          | Modular rules split by topic                             |
+| `.claude/workflows/`      | Playbooks for recurring work types                       |
+| `tasks/`                  | Planning, progress tracking, and review notes            |
+| `learnings/`              | Captured mistakes and the rules created from them        |
+| `diagrams/`               | Visual explanations of the system                        |
+| `examples/`               | Before/after examples and realistic sessions             |
 
-This should be simple and convincing.
+---
 
-guide.md
+## How Claude memory actually works
 
-The deep explanation.
+Claude Code does not “remember everything forever” like a human.
 
-Purpose:
+It reads the memory files you provide at the start of work and uses those files as instructions and context for the current session.
 
-explain the full mental model
-teach the hierarchy
-explain the workflow in plain language
-show best practices and anti-patterns
+### Memory layers
 
-This is where you go broad and detailed.
+* **Global memory** → your personal preferences across all projects
+* **Project memory** → rules for a specific repository
+* **Local memory** → your private notes for one project
+* **Modular rules** → additional files loaded by topic
 
-CLAUDE.md
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/cb2ee08d-cc5c-45c3-9b66-fa31f937cbc3" alt="How Claude reads memory" width="420">
+</p>
 
-The operating file.
+### Priority order
 
-Purpose:
+If two rules conflict, the more specific one wins:
 
-store the main rules Claude should follow in this repo
-keep the high-signal instructions in one place
+```text
+CLAUDE.local.md
+CLAUDE.md (project)
+~/.claude/CLAUDE.md
+```
 
-This is the most important file in the system.
+That means:
 
-CLAUDE.local.example.md
+* your private local override beats the team default
+* the project rule beats your general preference
+* the global file is the weakest layer
 
-A personal override template.
+### Memory hierarchy diagram
 
-Purpose:
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/98b2f9fb-aeec-4c74-abed-b7afd761b7bd" alt="Memory hierarchy diagram" width="700">
+</p>
 
-show users how to create local personal instructions
-keep private preferences out of git
+### What each file is for
 
-This should be an example, not the real private file.
+#### `~/.claude/CLAUDE.md`
 
-.claude/rules/
-
-Modular rules.
-
-Purpose:
-
-split rules by topic
-keep CLAUDE.md short
-allow more focused maintenance
-
-Examples:
-
-coding rules
-testing rules
-git workflow
-debugging habits
-.claude/workflows/
-
-Process playbooks.
-
-Purpose:
-
-explain how to handle recurring work types
-reduce ambiguity for common tasks
+Use this for preferences you want in **every project**.
 
 Examples:
 
-plan mode workflow
-bugfix workflow
-refactor workflow
-tasks/
+* preferred coding style
+* default explanation style
+* general planning behavior
+* formatting preferences
 
-Execution tracking.
+#### `./CLAUDE.md`
 
-Purpose:
+Use this for rules the **whole repository** should follow.
 
-store plans
-track progress
-record review notes
+Examples:
 
-This is where the process becomes operational instead of theoretical.
+* architecture rules
+* test commands
+* branch naming
+* code review expectations
+* project-specific constraints
 
-learnings/
+This file should usually be committed to Git.
 
-Captured lessons.
+#### `./CLAUDE.local.md`
 
-Purpose:
+Use this for **private notes** that should not be committed.
 
-store examples of mistakes and corrections
-make the self-improvement loop visible
+Examples:
 
-This is the memory of the system.
+* local machine setup
+* temporary reminders
+* personal shortcuts
+* one-off workflow preferences
 
-diagrams/
+This file should usually be in `.gitignore`.
 
-Visual explanations.
+#### `.claude/rules/*.md`
 
-Purpose:
+Use these to split large rules into smaller topic-specific files.
 
-make the system easier to understand
-show structure at a glance
-help people learn faster
+Examples:
 
-Important: do not leave diagrams only as source files. Also render them to PNG or SVG if you want the repo to feel polished.
+* `coding.md`
+* `testing.md`
+* `debugging.md`
+* `api-routes.md`
 
-examples/
+This keeps the main `CLAUDE.md` short and high-signal.
 
-Concrete demonstrations.
+---
 
-Purpose:
+## Quick start
 
-show bad vs good rules
-show a realistic session
-make the system believable
+### 1. Create a project `CLAUDE.md`
 
-Without examples, the repo stays abstract.
+At the root of your repo, add a `CLAUDE.md`.
 
-## summary
+Start small. Do not write a giant manifesto.
 
-If someone asks, “What is this repo?” the shortest honest answer is:
+```md
+# Code Style
+- Use TypeScript, not plain JavaScript
+- Use ES modules
+- Keep functions small and explicit
 
-This repo is a practical system for making Claude Code more reliable by turning repeated mistakes into explicit rules, task workflows, and reusable project memory.
+# Architecture
+- API routes live in src/api/
+- Database logic lives in src/db/
+- Do not mix UI and server code
 
-If someone asks, “What should I do first?”:
+# Workflow
+- For tasks with more than 3 steps, make a plan first
+- Keep changes minimal
+- Do not edit unrelated files
 
-create CLAUDE.md
-add a few repo-specific rules
-create .claude/rules/
-track tasks in tasks/todo.md
-update rules whenever mistakes repeat
+# Testing
+- Run npm test before finishing
+- Run npm run typecheck before commit
+```
 
-The bundled template repo contains:
+---
 
-- `README.md` with positioning, installation, and usage docs
-- `CLAUDE.md` core memory and workflow rules
-- `.claude/rules/` modular rules
-- `.claude/workflows/` structured procedures
-- `tasks/todo.example.md` for planning and review
-- `learnings/examples.md` to store mistakes and the rule created from them
-- `diagrams/` with Mermaid charts
-- `examples/` with before/after examples
+### 2. Add modular rules
+
+Create `.claude/rules/` and split rules by topic.
+
+```text
+.claude/
+  rules/
+    coding.md
+    testing.md
+    git.md
+    debugging.md
+```
+
+This avoids one huge file and makes maintenance easier.
+
+---
+
+### 3. Use task tracking
+
+Create a task file such as `tasks/todo.md`.
+
+For every non-trivial task:
+
+* write the plan
+* track progress
+* add a short review at the end
+
+```md
+# Task: Fix broken auth redirect
+
+## Plan
+- [ ] Reproduce the bug
+- [ ] Find the root cause
+- [ ] Implement the fix
+- [ ] Run tests
+- [ ] Document the lesson
+
+## Review
+- Root cause was wrong callback path
+- Added regression test
+- Added rule to avoid hardcoded redirect paths
+```
+
+---
+
+### 4. Verify before calling it done
+
+Do not stop at “the code changed.”
+
+Done means **verified**.
+
+Examples:
+
+* UI → open and test it
+* backend → run tests
+* infrastructure → check logs
+* bugfix → reproduce before and after
+
+If there is no verification step, the workflow is weak.
+
+---
+
+### 5. Turn repeated mistakes into rules
+
+Whenever Claude makes a mistake twice, convert that mistake into a rule.
+
+```md
+## New learning
+- Mistake: Changed unrelated files during a refactor
+- Cause: Scope was too broad
+- Rule: Only modify files directly required for the task unless explicitly asked
+```
+
+That is how the system compounds over time.
+
+---
+
+## Good rules vs bad rules
+
+Most teams write rules like this:
+
+```md
+- Write clean code
+- Test your changes
+- Keep files organized
+- Use best practices
+```
+
+These sound fine, but they are weak because they are:
+
+* vague
+* not testable
+* not project-specific
+* already obvious to the model
+
+Better rules look like this:
+
+```md
+# Code Style
+- Use ES modules only; do not use CommonJS
+- Prefer named exports for shared utilities
+- Keep API handlers under src/api/handlers/
+
+# Testing
+- Run npm run test:unit before completion
+- Run npm run typecheck before commit
+- For auth changes, also run npm run test:auth
+
+# Workflow
+- For tasks with more than 3 steps, write a plan in tasks/todo.md first
+- Do not modify unrelated files
+- If a fix is temporary, say so explicitly and explain the tradeoff
+
+# Common Mistakes
+- Do not hardcode environment-specific URLs
+- Do not rename files during bugfixes unless required
+- Do not skip regression tests for production bugs
+```
+
+---
+
+## Why this works
+
+This system improves Claude output because it adds:
+
+### 1. Real constraints
+
+Claude now knows:
+
+* where things belong
+* how to verify changes
+* what failure patterns to avoid
+* what “done” actually means
+
+### 2. Consistency across sessions
+
+Different sessions produce more similar outputs because the repo contains stable instructions.
+
+### 3. Fewer repeated mistakes
+
+Failures are captured and turned into guardrails.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/d7b2f1da-3f03-475b-ba7d-5ec72ec1c497" alt="Feedback loop diagram" width="520">
+</p>
+
+---
+
+## File hierarchy
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/428fa84b-437f-4a57-a479-6011f2258431" alt="File hierarchy diagram" width="520">
+</p>
+
+---
+
+## Full system breakdown
+
+The README should give fast understanding.
+
+For the full explanation, put the deeper content in `guide.md`.
+
+That guide should cover:
+
+* what `CLAUDE.md` is
+* where each memory file belongs
+* what to include and what to avoid
+* how imports work
+* how modular rules work
+* workflow patterns
+* how to evolve the system over time
+* common mistakes when writing memory files
+
+### Rule of thumb
+
+* `README.md` → fast understanding
+* `guide.md` → full explanation
+* `CLAUDE.md` → operational rules
+* `.claude/rules/` → modular extensions
+* `tasks/` → execution tracking
+* `learnings/` → institutional memory
+
+---
 
 ## Suggested publishing flow
 
-1. Copy `assets/template-repo/` into a new GitHub repository.
-2. Tailor `CLAUDE.md` to your project.
-3. Replace the example learnings with real failures from your own usage.
-4. Keep the core file short and move detailed rules into `.claude/rules/`.
-5. Publish the repo as both a guide and a starter kit.
+1. Copy `assets/template-repo/` into a new GitHub repository
+2. Tailor `CLAUDE.md` to your own project
+3. Replace the example learnings with real failures from actual use
+4. Keep the core file short and move detailed rules into `.claude/rules/`
+5. Publish the repo as both a guide and a starter kit
 
-## Why this is a good skill
+---
 
-Most skill ideas fail because they are too abstract. This one is concrete:
+## Why this is a strong skill
 
-- clear inputs: pasted context and uploaded files
-- clear outputs: a repository skeleton, docs, diagrams, and reusable rules
-- clear workflow: diagnose, codify, verify, iterate
+Most skill ideas fail because they are abstract.
 
-## Notes
+This one is concrete:
 
-- Keep `CLAUDE.md` compact. Long files degrade adherence.
-- Prefer examples, templates, and checklists over theory.
-- Treat every repeated correction as missing system design.
+* **clear inputs** → pasted context and uploaded files
+* **clear outputs** → repo skeleton, docs, diagrams, reusable rules
+* **clear workflow** → diagnose, codify, verify, iterate
+
+That makes it usable, teachable, and repeatable.
+
+---
+
+## Principles
+
+* Keep `CLAUDE.md` compact
+* Prefer examples over theory
+* Prefer checklists over vague advice
+* Prefer specific rules over motivational language
+* Treat repeated corrections as missing system design
+
+---
+
+## Summary
+
+The shortest honest description of this repo is:
+
+> A practical system for making Claude Code more reliable by turning repeated mistakes into explicit rules, workflows, and reusable project memory.
+
+If you only do five things:
+
+1. create `CLAUDE.md`
+2. add a few repo-specific rules
+3. create `.claude/rules/`
+4. track tasks in `tasks/todo.md`
+5. update rules whenever mistakes repeat
+
+That is the system.
+
+---
+
+## License
+
+MIT
+
+---
+
+## Contributing
+
+Contributions are welcome.
+
+Useful contributions include:
+
+* clearer templates
+* better examples
+* improved workflows
+* stronger diagrams
+* real-world lessons from repeated Claude failures
+
+If you find a repeated failure pattern, turn it into a rule and open a PR.
+
+```
