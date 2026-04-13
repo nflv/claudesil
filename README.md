@@ -1,6 +1,6 @@
 <img width="1536" height="1024" alt="crab transparent" src="https://github.com/user-attachments/assets/dde8f855-5ea8-4ab6-a3f4-a4d48538ac52" />
 
-## Claude Self-Improvement Repo
+## Claudesil ( Self-Improvement Loop )
 
 
 A practical, publish-ready system for making Claude Code more reliable by turning repeated mistakes into explicit rules, workflows, and reusable project memory.
