@@ -1,4 +1,4 @@
-<img width="816" height="1475" alt="mermaid-diagram (1)" src="https://github.com/user-attachments/assets/44043487-3405-439b-a1ed-6a5fb0fe016a" /># Claude Self Improvement Repo
+# Claude Self Improvement Repo
 
 A push-ready skill repository that teaches and scaffolds a well-documented GitHub repo for Claude Code workflows.
 
@@ -43,6 +43,8 @@ It is a disciplined workflow:
 This repository turns that loop into a concrete, reproducible system.
 
 ## Diagram
+
+<img width="816" height="1475" alt="mermaid-diagram (1)" src="https://github.com/user-attachments/assets/44043487-3405-439b-a1ed-6a5fb0fe016a" />
 
 # Claude Self-Improvement System
 
